@@ -44,48 +44,64 @@ if gameCharKing["name"] == chooseYourPlayer or gameCharFarmer["name"] == chooseY
 else:
     print("Choose thang se yaar");
 
+gameScore = 100;
+
+def userQueOneKing():
+    userQueOne = int(input("Dragon ko marne ke liye kitni army use karoge? (20,40,10,80) :- "));
+    if userQueOne == 20:
+        print("Bhai dragon hai tere chahcha ka ladka nahi.");
+        gameScore =- 20;
+    elif userQueOne == 40:
+            print("Bhai ye ki na raja wali baat");
+            gameScore =+ 30;
+    elif userQueOne == 10:
+            print("Bhai ye bhi kyu bhej raha hai");
+            gameScore =- 20;
+    elif userQueOne == 80:
+            print("Bhai sab kuch yaha use kar lega to rajya kaise chalyeg.");
+            gameScore =- 20;
+    else:
+        print("Bhai aankho ka illaj karwa le.")
+
+def userQueTwo():
+    userQueTwo = int(input("Ab batao farmer ko kitne paise donge? :-  100, 1000, 500, 2000 (2300 funds available. :- )"))
+    
+    if userQueTwo == 500:
+        print("Very good Mar do tum praja ko bhuka rakh ke.");
+        gameScore =- 40;
+    elif userQueTwo == 100:
+                print("Bhai ye bhi kyu hi de raha hai")
+                gameScore =- 40;
+    elif userQueTwo == 1000:
+                print("Acha raja banaga re tu")
+                gameScore =+ 50;
+    elif userQueTwo == 2000:
+                print("Desh chala raha hai ya dabha")
+                gameScore =- 40;
+
+def userQueThree():
+    userQueThree = int(input("Knight ko salary kitni doge? (200,500,2000,1000):- {Available defence budget is: 2300}"));
+    if userQueThree == 200:
+        print("Bhai tera knight hai koi bandar nahi")
+        gameScore =- 15;
+    elif userQueThree == 500:
+        print("Chal aacha hai lekin bhai isme woh bhuka mar jayega")
+        gameScore =- 10;
+    elif userQueThree == 1000:
+        print("Very good ab tu dragon se lad payega (Que 1)")
+        gameScore =+ 25;
+    else:
+        print("Haa bhai tu sab isko hi dede. Egoist kahi ke.")
+        gameScore =- 15;
+
+
 
 if chooseYourPlayer == gameCharKing["name"]:
-    userQueOne = int(input("If you want to kill dragon how much army will you use? :- (10,20,40,50) :-"+" "));
-    if userQueOne == 40:
-        print("Itni army yaha use karega to barbad nahi ho jayega.");
-        userQueTwo = int(input("Ab batao farmer ko kitne paise donge? :-  100, 1000, 500, 2000 (2300 funds available. :- )"))
-        gameCharKing = {
-        "power": int(80),
-        }
-
-    if userQueOne == 10:
-        print("Dragon hai woh tumhare chacha ka ladka nahi");
-        gameCharKing = {
-            "power" : int(80),
-        }
-        userQueTwo = int(input("Ab batao farmer ko kitne paise donge? :-  100, 1000, 500, 2000 (2300 funds available. :- )"))
-        
-    if userQueOne == 20:
-        print("Ab ki na thodi akal mando wali baat")
-        gameCharKing = {
-            "power" : int(120),
-        }
-        userQueTwo = int(input("Ab batao farmer ko kitne paise donge? :-  100, 1000, 500, 2000 (2300 funds available. :- )"))
-
-        if userQueTwo == 500:
-            print("Very good Mar do tum praja ko bhuka rakh ke.")
-        if userQueTwo == 100:
-            print("Bhai ye bhi kyu hi de raha hai")
-        if userQueTwo == 1000:
-            print("Acha raja banaga re tu")
-        if userQueTwo == 2000:
-            print("Desh chala raha hai ya dabha")
-        
-    if userQueOne == 50:
-        print("Raja kisne banaya tujhe")
-        userQueTwo = int(input("Ab batao farmer ko kitne paise donge? :-  100, 1000, 500, 2000 (2300 funds available. :- )"))
-        gameCharKing = {
-            "power": int(80),
-        }
-
-
-
-
-else:
-    print("xyz")
+        print(f"User has chosen {chooseYourPlayer}");
+        userQueOneKing();
+        userQueTwo();
+        userQueThree();
+        if gameScore<100:
+            print("Haar gaye aap janab please kabhi prime minister mat banna.")
+        else:
+            print(gameScore)
